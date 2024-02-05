@@ -22,8 +22,6 @@ def bypass(img):
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, kernel_size)
     img = cv2.erode(img, kernel, iterations=1)
     reader = easyocr.Reader(['en'], gpu=False, verbose=True)
-    cv2.imshow("n",img)
-    cv2.waitKey(0)
     results = reader.readtext(img)
     numbers = []
     for (bbox, text, score) in results:
